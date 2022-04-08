@@ -1,0 +1,34 @@
+<div class="container">
+<p>Hello everyone</p>
+<p>This site is used to calculate Ebbinghaus memory list
+ </p>
+<p>Welcome!</p>
+
+
+    <form name="form1" action="#" onsubmit="getList()">
+        <ul>
+        <li><input id="day" type='text' name ='text1'/></li>
+        <li class="rq">*Required Field</li>
+        <li><input type="submit" name="submit" value="Submit" /></li>
+        </ul>
+        </form>
+</div>
+
+<script language="javascript">
+    function getList(){
+        const day=document.getElementById("day").value;
+    	const prefix = "*L";
+		const suffix = "\n";
+        intervals = [ 1, 2, 4, 7, 15, 30 ];
+		let result = "" + day + suffix;
+		for (let i = intervals.length-1; i >=0 ; i-- ) {
+			//System.out.println("weekday is = " + day+"   "+intervals[i]);
+			if (day > intervals[i]-1) {
+				let intervalDay=day-intervals[i]+1;
+				result += prefix +intervalDay+suffix;
+			}
+		}
+		//result += prefix + day + suffix;
+		alert( result+"---------");
+    }
+</script>
